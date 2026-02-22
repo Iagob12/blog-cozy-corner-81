@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste API Alpha Terminal</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background: #1e1e1e;
+            color: #00ff00;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #00ff00;
+            text-align: center;
+        }
+        .test {
+            background: #2d2d2d;
+            border: 1px solid #00ff00;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .test h3 {
+            color: #00ffff;
+            margin-top: 0;
+        }
+        .loading {
+            color: #ffff00;
+        }
+        .success {
+            color: #00ff00;
+        }
+        .error {
+            color: #ff0000;
+        }
+        pre {
+            background: #1a1a1a;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        button {
+            background: #00ff00;
+            color: #1e1e1e;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 5px;
+        }
+        button:hover {
+            background: #00cc00;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔧 Teste de Conexão - Alpha Terminal API</h1>
+
+    <div class="test">
+        <h3>1. Teste de Conexão Básica</h3>
+        <button onclick="testarConexao()">Testar</button>
+        <div id="resultado-conexao" class="loading">Aguardando teste...</div>
+    </div>
+
+    <div class="test">
+        <h3>2. Buscar Top Picks</h3>
+        <button onclick="testarTopPicks()">Testar</button>
+        <div id="resultado-toppicks" class="loading">Aguardando teste...</div>
+        <pre id="dados-toppicks"></pre>
+    </div>
+
+    <div class="test">
+        <h3>3. Buscar Cotação</h3>
+        <button onclick="testarCotacao()">Testar PETR4</button>
+        <div id="resultado-cotacao" class="loading">Aguardando teste...</div>
+        <pre id="dados-cotacao"></pre>
+    </div>
+
+    <div class="test">
+        <h3>4. Radar de Oportunidades (IA)</h3>
+        <button onclick="testarRadar()">Testar</button>
+        <div id="resultado-radar" class="loading">Aguardando teste...</div>
+        <pre id="dados-radar"></pre>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:8000';
+
+        async function testarConexao() {
+            const resultado = document.getElementById('resultado-conexao');
+            resultado.className = 'loading';
+            resultado.textContent = 'Testando conexão...';
+
+            try {
+                const response = await fetch(`${API_URL}/`);
+                const data = await response.json();
+                
+                resultado.className = 'success';
+                resultado.textContent = `✅ Conexão OK! Status: ${data.status}`;
+            } catch (error) {
+                resultado.className = 'error';
+                resultado.textContent = `❌ Erro: ${error.message}`;
+            }
+        }
+
+        async function testarTopPicks() {
+            const resultado = document.getElementById('resultado-toppicks');
+            const dados = document.getElementById('dados-toppicks');
+            
+            resultado.className = 'loading';
+            resultado.textContent = 'Buscando top picks...';
+            dados.textContent = '';
+
+            try {
+                const response = await fetch(`${API_URL}/api/v1/top-picks?limit=5`);
+                const data = await response.json();
+                
+                resultado.className = 'success';
+                resultado.textContent = `✅ ${data.length} ações encontradas!`;
+                dados.textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                resultado.className = 'error';
+                resultado.textContent = `❌ Erro: ${error.message}`;
+                dados.textContent = error.stack;
+            }
+        }
+
+        async function testarCotacao() {
+            const resultado = document.getElementById('resultado-cotacao');
+            const dados = document.getElementById('dados-cotacao');
+            
+            resultado.className = 'loading';
+            resultado.textContent = 'Buscando cotação...';
+            dados.textContent = '';
+
+            try {
+                const response = await fetch(`${API_URL}/api/v1/market/quote/PETR4`);
+                const data = await response.json();
+                
+                resultado.className = 'success';
+                resultado.textContent = `✅ Cotação: R$ ${data.preco_atual} (${data.variacao_dia}%)`;
+                dados.textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                resultado.className = 'error';
+                resultado.textContent = `❌ Erro: ${error.message}`;
+                dados.textContent = error.stack;
+            }
+        }
+
+        async function testarRadar() {
+            const resultado = document.getElementById('resultado-radar');
+            const dados = document.getElementById('dados-radar');
+            
+            resultado.className = 'loading';
+            resultado.textContent = 'Analisando mercado com IA...';
+            dados.textContent = '';
+
+            try {
+                const response = await fetch(`${API_URL}/api/v1/alpha/radar-oportunidades`);
+                const data = await response.json();
+                
+                resultado.className = 'success';
+                resultado.textContent = `✅ ${data.setores_aceleracao?.length || 0} setores identificados!`;
+                dados.textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                resultado.className = 'error';
+                resultado.textContent = `❌ Erro: ${error.message}`;
+                dados.textContent = error.stack;
+            }
+        }
+
+        // Testa conexão automaticamente ao carregar
+        window.onload = () => {
+            testarConexao();
+        };
+    </script>
+</body>
+</html>

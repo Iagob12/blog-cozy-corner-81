@@ -1,0 +1,43 @@
+{
+  "versao": "1.0.0",
+  "ultima_atualizacao": "2026-02-21T00:00:00",
+  
+  "scheduler_estrategia": {
+    "ativo": true,
+    "intervalo_minutos": 60,
+    "auto_start": true,
+    "descricao": "Atualiza estratégias de entrada/stop/alvo a cada 1h"
+  },
+  
+  "analise": {
+    "usar_consenso_padrao": true,
+    "num_execucoes_consenso": 5,
+    "min_aparicoes_consenso": 3,
+    "descricao": "Consenso: Executa 5x e aprova apenas itens que aparecem 3+ vezes"
+  },
+  
+  "cache_precos": {
+    "ativo": true,
+    "tempo_expiracao_horas": 24,
+    "usar_fallback": true,
+    "descricao": "Cache inteligente com fallback quando Brapi falhar"
+  },
+  
+  "notas_estruturadas": {
+    "ativo": true,
+    "divergencia_maxima": 2.0,
+    "pesos": {
+      "fundamentos": 0.30,
+      "catalisadores": 0.30,
+      "valuation": 0.20,
+      "gestao": 0.20
+    },
+    "descricao": "Validação de notas da IA com cálculo objetivo"
+  },
+  
+  "alertas": {
+    "ativo": true,
+    "tipos": ["OPORTUNIDADE", "STOP", "ALVO", "AGUARDAR"],
+    "descricao": "Alertas automáticos baseados em preço atual vs estratégia"
+  }
+}

@@ -1,0 +1,170 @@
+========================================
+  🎉 SITE WEB RODANDO!
+========================================
+
+✅ Frontend: http://localhost:8081
+✅ Backend: http://localhost:8000
+✅ Design: Elegante e Moderno
+✅ Dados: Tempo Real
+
+========================================
+  🌐 ACESSE O SITE AGORA
+========================================
+
+Opção 1 - Clique duas vezes:
+→ ABRIR_SITE.html
+
+Opção 2 - Abra no navegador:
+→ http://localhost:8081
+
+========================================
+  🎨 O QUE VOCÊ VAI VER
+========================================
+
+📊 Dashboard Principal
+   - Market Pulse (Ibovespa, Dólar)
+   - Alpha Pick (Melhor ação do dia)
+   - Tabela Elite (Top 15 ações)
+   - Feed de Alertas
+
+💎 Design Elegante
+   - Interface moderna
+   - Animações suaves
+   - Cores profissionais
+   - Responsivo
+
+📈 Dados em Tempo Real
+   - Cotações atualizadas
+   - Efficiency Score
+   - Recomendações
+   - Catalisadores
+
+========================================
+  🚀 FUNCIONALIDADES
+========================================
+
+✓ Ver top picks ranqueadas
+✓ Análise de cada ação
+✓ Alertas de preço
+✓ Contexto macroeconômico
+✓ Tese de investimento
+✓ Upload de PDFs de RI
+
+========================================
+  📱 COMPONENTES
+========================================
+
+AlphaHeader
+→ Cabeçalho com logo e status
+
+MarketPulse
+→ Indicadores de mercado
+
+AlphaPick
+→ Destaque da melhor ação
+
+EliteTable
+→ Tabela com todas as ações
+
+AlertsFeed
+→ Feed de alertas em tempo real
+
+ThesisPanel
+→ Painel lateral com análise
+
+========================================
+  🎯 COMO USAR
+========================================
+
+1. Abra: http://localhost:8081
+
+2. Veja o Market Pulse
+   → Ibovespa e Dólar atualizados
+
+3. Confira o Alpha Pick
+   → Melhor ação do momento
+
+4. Explore a Elite Table
+   → Clique em qualquer ação
+
+5. Veja a Tese
+   → Painel lateral com detalhes
+
+========================================
+  🔄 ATUALIZAÇÃO AUTOMÁTICA
+========================================
+
+O site atualiza automaticamente:
+→ A cada 1 minuto
+→ Dados em tempo real
+→ Sem precisar recarregar
+
+========================================
+  🎨 TEMAS E CORES
+========================================
+
+Cores Principais:
+→ Azul: #667eea
+→ Roxo: #764ba2
+→ Verde: #10b981 (positivo)
+→ Vermelho: #ef4444 (negativo)
+
+Design:
+→ Bento Grid Layout
+→ Glassmorphism
+→ Animações Framer Motion
+→ Shadcn/ui Components
+
+========================================
+  📊 DADOS EXIBIDOS
+========================================
+
+Para cada ação:
+✓ Ticker
+✓ Efficiency Score
+✓ Preço Atual
+✓ Preço Teto
+✓ Upside Potencial
+✓ ROE, CAGR, P/L
+✓ Recomendação
+✓ Catalisadores
+
+========================================
+  🔧 COMANDOS
+========================================
+
+Parar o site:
+Ctrl + C no terminal
+
+Reiniciar o site:
+npm run dev
+
+Ver logs:
+Terminal mostra em tempo real
+
+========================================
+  📱 RESPONSIVO
+========================================
+
+Funciona em:
+✓ Desktop (melhor experiência)
+✓ Tablet
+✓ Mobile
+
+========================================
+  🎯 PRÓXIMOS PASSOS
+========================================
+
+1. Explore o site
+2. Clique nas ações
+3. Veja as teses
+4. Configure alertas
+5. Analise PDFs
+
+========================================
+
+🌐 ACESSE: http://localhost:8081
+
+ou clique em: ABRIR_SITE.html
+
+========================================

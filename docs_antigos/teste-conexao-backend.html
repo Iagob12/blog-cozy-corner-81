@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Conexão Backend</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #0a0a0a;
+            color: #fff;
+        }
+        .status {
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .success { background: #1a4d2e; border: 2px solid #4ade80; }
+        .error { background: #4d1a1a; border: 2px solid #ef4444; }
+        .loading { background: #1a3a4d; border: 2px solid #3b82f6; }
+        pre {
+            background: #1a1a1a;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            max-height: 500px;
+        }
+        button {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover { background: #2563eb; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Teste de Conexão - Alpha Terminal Backend</h1>
+    
+    <div id="status" class="status loading">
+        <h2>⏳ Testando conexão...</h2>
+    </div>
+
+    <div>
+        <button onclick="testarRoot()">Testar /</button>
+        <button onclick="testarTopPicks()">Testar /api/v1/top-picks</button>
+        <button onclick="testarAlerts()">Testar /api/v1/alerts</button>
+        <button onclick="testarMacro()">Testar /api/v1/macro-context</button>
+    </div>
+
+    <h3>Resposta:</h3>
+    <pre id="response">Aguardando teste...</pre>
+
+    <script>
+        const API_URL = 'http://localhost:8000';
+
+        async function testarEndpoint(endpoint, nome) {
+            const statusDiv = document.getElementById('status');
+            const responseDiv = document.getElementById('response');
+            
+            statusDiv.className = 'status loading';
+            statusDiv.innerHTML = `<h2>⏳ Testando ${nome}...</h2>`;
+            responseDiv.textContent = 'Carregando...';
+
+            try {
+                const response = await fetch(`${API_URL}${endpoint}`);
+                const data = await response.json();
+                
+                statusDiv.className = 'status success';
+                statusDiv.innerHTML = `
+                    <h2>✅ Sucesso!</h2>
+                    <p>Endpoint: ${endpoint}</p>
+                    <p>Status: ${response.status}</p>
+                `;
+                responseDiv.textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                statusDiv.className = 'status error';
+                statusDiv.innerHTML = `
+                    <h2>❌ Erro de Conexão</h2>
+                    <p>Não foi possível conectar ao backend em ${API_URL}</p>
+                    <p>Erro: ${error.message}</p>
+                `;
+                responseDiv.textContent = error.stack;
+            }
+        }
+
+        function testarRoot() {
+            testarEndpoint('/', 'Root');
+        }
+
+        function testarTopPicks() {
+            testarEndpoint('/api/v1/top-picks', 'Top Picks');
+        }
+
+        function testarAlerts() {
+            testarEndpoint('/api/v1/alerts', 'Alerts');
+        }
+
+        function testarMacro() {
+            testarEndpoint('/api/v1/macro-context', 'Macro Context');
+        }
+
+        // Teste automático ao carregar
+        window.onload = () => {
+            testarTopPicks();
+        };
+    </script>
+</body>
+</html>

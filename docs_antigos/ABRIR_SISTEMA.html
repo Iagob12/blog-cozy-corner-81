@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Alpha Terminal - Sistema Rodando</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            color: #666;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        
+        .status {
+            background: #10b981;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 30px;
+            font-size: 1.2em;
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 20px;
+            margin: 15px 0;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            text-align: center;
+            color: white;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(245, 87, 108, 0.4);
+        }
+        
+        .info {
+            background: #f3f4f6;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .info h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .info ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .info li {
+            padding: 8px 0;
+            color: #333;
+        }
+        
+        .info li:before {
+            content: "✅ ";
+            margin-right: 8px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Alpha Terminal</h1>
+        <p class="subtitle">Sistema de Análise de Investimentos com IA</p>
+        
+        <div class="status">
+            ✅ SISTEMA RODANDO!
+        </div>
+        
+        <a href="http://localhost:8080" class="btn btn-primary" target="_blank">
+            🎯 ABRIR ALPHA TERMINAL
+        </a>
+        
+        <a href="http://localhost:8000/docs" class="btn btn-secondary" target="_blank">
+            📚 VER DOCUMENTAÇÃO DA API
+        </a>
+        
+        <div class="info">
+            <h3>📊 O que está funcionando:</h3>
+            <ul>
+                <li>Frontend em http://localhost:8080</li>
+                <li>Backend em http://localhost:8000</li>
+                <li>200+ ações da B3</li>
+                <li>Preços REAIS via Brapi.dev</li>
+                <li>Análise com Gemini Pro</li>
+                <li>Atualização automática (24h)</li>
+            </ul>
+        </div>
+        
+        <div class="info">
+            <h3>🔄 Atualização Automática:</h3>
+            <ul>
+                <li>CSV: A cada 24 horas</li>
+                <li>Preços: A cada 5 minutos</li>
+                <li>Análise: Toda requisição</li>
+                <li>Ranking: Recalculado diariamente</li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            <p>Sistema implementado em 19/02/2026</p>
+            <p>Versão 5.0.0 (Release Analysis)</p>
+        </div>
+    </div>
+    
+    <script>
+        // Verifica se os serviços estão rodando
+        async function checkServices() {
+            try {
+                const response = await fetch('http://localhost:8000/');
+                if (response.ok) {
+                    console.log('✅ Backend está rodando!');
+                }
+            } catch (error) {
+                console.warn('⚠️ Backend pode não estar rodando');
+            }
+        }
+        
+        checkServices();
+    </script>
+</body>
+</html>

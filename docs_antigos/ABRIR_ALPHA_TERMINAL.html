@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpha Terminal - Acesso Rápido</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            color: #666;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        
+        .status {
+            background: #f0f9ff;
+            border-left: 4px solid #0ea5e9;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+        
+        .status-item {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+            font-size: 0.95em;
+        }
+        
+        .status-icon {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        
+        .buttons {
+            display: grid;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: block;
+            padding: 18px 30px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+        
+        .btn-secondary:hover {
+            background: #f0f4ff;
+            transform: translateY(-2px);
+        }
+        
+        .info {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        
+        .info-title {
+            font-weight: 600;
+            color: #92400e;
+            margin-bottom: 8px;
+        }
+        
+        .info-text {
+            color: #78350f;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .feature {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .feature-icon {
+            font-size: 2em;
+            margin-bottom: 8px;
+        }
+        
+        .feature-text {
+            font-size: 0.9em;
+            color: #475569;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Alpha Terminal</h1>
+        <p class="subtitle">Sistema de Análise de Investimentos com IA</p>
+        
+        <div class="status">
+            <div class="status-item">
+                <span class="status-icon">✅</span>
+                <span><strong>Backend:</strong> Rodando em http://localhost:8000</span>
+            </div>
+            <div class="status-item">
+                <span class="status-icon">✅</span>
+                <span><strong>Frontend:</strong> Rodando em http://localhost:8081</span>
+            </div>
+            <div class="status-item">
+                <span class="status-icon">⚡</span>
+                <span><strong>Modo:</strong> Mock Data (Respostas Instantâneas)</span>
+            </div>
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">📊</div>
+                <div class="feature-text">15 Ações Analisadas</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🤖</div>
+                <div class="feature-text">3 IAs Integradas</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">💰</div>
+                <div class="feature-text">Preços em Tempo Real</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <div class="feature-text">Análise Instantânea</div>
+            </div>
+        </div>
+        
+        <div class="buttons">
+            <a href="http://localhost:8081" class="btn btn-primary" target="_blank">
+                🎯 Abrir Alpha Terminal
+            </a>
+            
+            <a href="http://localhost:8000/docs" class="btn btn-secondary" target="_blank">
+                📚 Ver Documentação da API
+            </a>
+        </div>
+        
+        <div class="info">
+            <div class="info-title">⚡ Modo Mock Ativo</div>
+            <div class="info-text">
+                O sistema está usando dados simulados para respostas instantâneas.
+                Para usar APIs reais, edite <code>.env</code> e mude <code>USE_MOCK_DATA=false</code>
+            </div>
+        </div>
+        
+        <div class="info" style="background: #dbeafe; border-color: #3b82f6; margin-top: 15px;">
+            <div class="info-title" style="color: #1e40af;">💡 Dica</div>
+            <div class="info-text" style="color: #1e3a8a;">
+                Pressione <strong>Ctrl+Shift+R</strong> no navegador para forçar atualização
+                se os dados não aparecerem.
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Verifica se os serviços estão rodando
+        async function checkServices() {
+            try {
+                const backendResponse = await fetch('http://localhost:8000/');
+                const frontendResponse = await fetch('http://localhost:8081/');
+                
+                if (backendResponse.ok && frontendResponse.ok) {
+                    console.log('✅ Todos os serviços estão rodando!');
+                } else {
+                    console.warn('⚠️ Alguns serviços podem não estar rodando');
+                }
+            } catch (error) {
+                console.error('❌ Erro ao verificar serviços:', error);
+            }
+        }
+        
+        checkServices();
+    </script>
+</body>
+</html>

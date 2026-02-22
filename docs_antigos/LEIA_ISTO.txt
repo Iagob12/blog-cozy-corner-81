@@ -1,0 +1,119 @@
+========================================
+  ⚠️ SITE NÃO MOSTRA DADOS?
+========================================
+
+SIGA ESTES PASSOS:
+
+========================================
+  1. TESTAR CONEXÃO
+========================================
+
+Clique duas vezes em:
+→ TESTAR_CONEXAO.html
+
+Isso vai abrir uma página de teste.
+Clique nos botões para testar cada parte.
+
+========================================
+  2. VERIFICAR BACKEND
+========================================
+
+Abra um terminal e digite:
+curl http://localhost:8000/
+
+Deve mostrar:
+{"message":"Alpha Terminal API"...}
+
+Se não mostrar, o backend não está rodando!
+
+Solução:
+cd Alpha
+python -m uvicorn app.main:app --reload
+
+========================================
+  3. VERIFICAR FRONTEND
+========================================
+
+O site deve estar em:
+http://localhost:8081
+
+Se não estiver, rode:
+cd blog-cozy-corner-81
+npm run dev
+
+========================================
+  4. LIMPAR CACHE
+========================================
+
+No navegador:
+1. Pressione Ctrl + Shift + Delete
+2. Limpe cache
+3. Recarregue com Ctrl + F5
+
+========================================
+  5. VER ERROS
+========================================
+
+No navegador:
+1. Pressione F12
+2. Vá na aba "Console"
+3. Veja se há erros em vermelho
+
+========================================
+  6. REINICIAR TUDO
+========================================
+
+1. Feche todos os terminais (Ctrl + C)
+
+2. Reinicie backend:
+   cd Alpha
+   python -m uvicorn app.main:app --reload
+
+3. Reinicie frontend (novo terminal):
+   cd blog-cozy-corner-81
+   npm run dev
+
+4. Abra: http://localhost:8081
+
+========================================
+  TESTE RÁPIDO
+========================================
+
+Backend funcionando?
+→ http://localhost:8000/docs
+
+Frontend funcionando?
+→ http://localhost:8081
+
+Teste de conexão?
+→ TESTAR_CONEXAO.html
+
+========================================
+  ARQUIVOS ÚTEIS
+========================================
+
+TESTAR_CONEXAO.html
+→ Testa se API está funcionando
+
+RESOLVER_PROBLEMAS.md
+→ Guia completo de soluções
+
+SITE_RODANDO.txt
+→ Informações do site
+
+========================================
+  STATUS ESPERADO
+========================================
+
+✅ Backend: http://localhost:8000
+✅ Frontend: http://localhost:8081
+✅ API respondendo
+✅ CORS configurado
+✅ Dados aparecendo
+
+========================================
+
+🔧 COMECE TESTANDO:
+Clique em TESTAR_CONEXAO.html
+
+========================================
